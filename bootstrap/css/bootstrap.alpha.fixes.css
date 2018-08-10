@@ -1,0 +1,9 @@
+.navbar-brand {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+.show>.dropdown-menu {
+    display: block;
+    position: absolute !important;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<title>Vision</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="form-block">
+<h3>Please, choose font sizes and step</h3>
+	<form>
+		<div class="form-group">
+			<label class="control-label">Small Font size, px</label><br/>
+			<input type="text" class="form-control" name="from" value="10" placeholder="Small Font size, px"/>
+		</div>
+		<div class="form-group">
+		<label class="control-label">Big Font size, px</label><br/>
+			<input type="text" class="form-control" name="to" value="500" placeholder="Big Font size, px"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Step time, seconds</label><br/>
+			<input type="text" class="form-control" name="step" value="25" placeholder="Step time, seconds"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Background Color</label><br/>
+			<input type="text" class="form-control" name="bg-color" value="000000" placeholder="Background Color"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Font Color</label><br/>
+			<input type="text" class="form-control" name="font-color" value="ffffff" placeholder="Font Color"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Letters</label><br/>
+			<textarea class="form-control" name="letters" placeholder="begin font size"/>
+			A, Б, В, Г, Д, Е, Ё, Ж, З, И, Й, К, Л, М, Н, О, П, Р, С, Т, У, Ф, Х, Ц, Ч, Ш, Щ, Ь, Ы, Ъ, Э, Ю, Я 
+			</textarea>
+		</div>
+		<div class="form-group">
+		<button type="button" class="btn btn-primary" id="begin">Begin</button>
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+<div class="wrapper">
+<div class="font">
+A
+</div>
+</div>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
