@@ -12,11 +12,13 @@
 <body>
 <div class="container">
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-12">
 <div class="form-block">
 <h3>Please, choose font sizes and step</h3>
 	<form>
-		<div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+            <div class="form-group">
 			<label class="control-label">Small Font size, px</label><br/>
 			<input type="text" class="form-control" name="from" value="10" placeholder="Small Font size, px"/>
 		</div>
@@ -28,7 +30,9 @@
 			<label class="control-label">Step time, seconds</label><br/>
 			<input type="text" class="form-control" name="step" value="25" placeholder="Step time, seconds"/>
 		</div>
-		<div class="form-group">
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
 			<label class="control-label">Background Color</label><br/>
 			<input type="text" class="form-control" name="bg-color" value="000000" placeholder="Background Color"/>
 		</div>
@@ -38,10 +42,20 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label">Letters</label><br/>
-			<textarea class="form-control" name="letters" placeholder="begin font size"/>
-			A, Б, В, Г, Д, Е, Ё, Ж, З, И, Й, К, Л, М, Н, О, П, Р, С, Т, У, Ф, Х, Ц, Ч, Ш, Щ, Ь, Ы, Ъ, Э, Ю, Я 
-			</textarea>
+			<select class="form-control" name="letters" placeholder="begin font size"/>
+			<option value="cyrillic">Cyrillic Letters</option>
+            <option value="latin">Latin Letters</option>
+            <option value="digits">Digits</option>
+			</select>
 		</div>
+        <div class="form-group">
+			<label class="control-label">Random Order 
+                <input type="checkbox" class="form-control" name="random" value="1"/>
+            </label>
+			
+		</div>
+            </div>
+        </div>	
 		<div class="form-group">
 		<button type="button" class="btn btn-primary" id="begin">Begin</button>
 		</div>

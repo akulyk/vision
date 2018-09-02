@@ -1,4 +1,8 @@
-var letters = ["A","Б","В"];
+const symbols = {
+	cyrillic:['A','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ь','Ы','Ъ','Э','Ю','Я'],
+	latin:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	digits:[0,1,2,3,4,5,6,7,8,9]
+};
 $(function(){
 	$('#begin').on('click',function(){	
 		$('.form-block').parents('.container').hide();
@@ -7,8 +11,16 @@ $(function(){
 		period = $('input[name="step"]').val(),
 		wrapperColor = "#"+$('input[name="bg-color"]').val(),
 		fontColor = "#"+$('input[name="font-color"]').val(),
-		letters = $('textarea[name="letters"]').val(); 
-		letters = letters.split(',').map(function(e){return e.trim();});
+		set = $('select[name="letters"]').val();
+		let random = $('input[name="random"]');
+		
+		if(random.is(':checked') && random.val() == 1){
+            var letters = shuffle(symbols[set]);
+		} else
+        {
+        	var letters = symbols[set];
+        }
+
 		toggleFullScreen(document.body);
 		$('.wrapper').css('background-color',wrapperColor);
 		$('.font').css('color',fontColor);
@@ -34,7 +46,6 @@ function FontChanger(elem,small,big,period,letters){
 	var big =  parseInt(big);
 	var step =  parseInt(step)*1000;
 	var period = parseInt(period)*1000 || 10000;
-	console.log(period)
 	this.elem = $font = $(elem);
 	var up = true;
 	var down = true;
@@ -42,47 +53,23 @@ function FontChanger(elem,small,big,period,letters){
 	
 	this.init = function(){
 		$font.html(this.getLetter());
-	}
+	};
 	
 	this.up = function(){
-		/*size = parseInt($font.css('font-size'));
-		size += step;
-		if(size < small){
-			size = small;
-		}
-		if(size <= big){	
-		this.anim(size);
-		//$font.css('font-size',size+'px');
-		} else{
-			up = false;
-		}
-		*/
+
 		this.animate(big,period);
 		up = false;
-	}
+	};
 	
 	this.down = function(){
-		/*size = parseInt($font.css('font-size'));
-		size -= step;
-		
-		if(size > big){
-			size = big;
-		}
-	
-		if(size >= small){	
-		this.anim(size);
-	//	$font.css('font-size',size+'px');
-		} else{
-			down = false;
-		}
-		*/
+
 		this.animate(small,period);
 		down = false;
-	}
+	};
 	this.getLetter = function(){
 		var letter = letters.shift();
 		return letter;
-	}
+	};
 	
 	this.change = function(){
 		if(up){
@@ -92,11 +79,10 @@ function FontChanger(elem,small,big,period,letters){
 		} else{
 			this.changeLetter();		
 		}
-	}
+	};
 	
 	this.changeLetter = function(){
 		var letter = this.getLetter();
-			console.log(letter)
 			if(letter){
 			$font.html(letter);
 			up = true;
@@ -146,5 +132,17 @@ function toggleFullScreen(elem) {
             document.msExitFullscreen();
         }
     }
+}
+
+/**
+* Shuffles array in place. ES6 version
+* @param {Array} a items An array containing the items.
+*/
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
